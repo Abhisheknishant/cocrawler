@@ -2,6 +2,10 @@ language: python
 sudo: required
 dist: xenial
 
+arch:
+    - amd64
+    - arm64
+
 python:
   - 3.5.3  # minimum for aiohttp=3 and async-timeout=3
   - 3.5
@@ -11,26 +15,6 @@ python:
   - 3.8
   - 3.9-dev
   - nightly
-
-matrix:
-  fast_finish: true
-  allow_failures:
-  - python: 3.9-dev
-  - python: nightly
-  - python: 3.8
-    arch: arm64
-  - python: 3.8
-    arch: s390x
-  include:
-  - python: 3.5.3
-    env: COCRAWLER_LOGLEVEL=DEBUG
-  - python: 3.5.3
-    env: PYTHONASYNCIODEBUG=1
-  - python: 3.8
-    arch: arm64
-  - python: 3.8
-    arch: s390x
-
 git:
   depth: 9999
 
